@@ -1,16 +1,21 @@
 {
   "name": "@fab-ui/autocomplete",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
-  "files": ["dist"],
+  "types": "dist/index.es.d.ts",
+  "styles":"dist/index.css",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -p tsconfig.build.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -33,6 +38,7 @@
     "path": "^0.12.7",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    "vite": "^6.3.1",
+    "vite-plugin-dts": "^4.5.3"
   }
 }

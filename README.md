@@ -43,5 +43,95 @@ function App() {
 }
 
 ```
+🔧 Props
+
+| Prop          | Type                                              | Required | Description                                           |
+| ------------- | ------------------------------------------------- | -------- | ----------------------------------------------------- |
+| `items`       | `T[]`                                             | ✅        | Array of items (strings or objects)                   |
+| `filterFn`    | `(input: string, item: T) => boolean`             | ✅        | Custom filter function to match input with items      |
+| `onSelect`    | `(item: T) => void`                               | ✅        | Called when an item is selected                       |
+| `renderItem`  | `(item: T, isActive: boolean) => React.ReactNode` | ❌        | Optional render function for custom list item display |
+| `placeholder` | `string`                                          | ❌        | Placeholder text for the input field                  |
 
 
+🧠 Advanced Example (Objects + Custom Render)
+
+```
+type User = { id: number; name: string };
+
+const users: User[] = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+];
+
+<Autocomplete
+  items={users}
+  filterFn={(input, user) => user.name.toLowerCase().includes(input.toLowerCase())}
+  onSelect={(user) => console.log(user)}
+  renderItem={(user, isActive) => (
+    <div className={isActive ? 'font-bold' : ''}>{user.name}</div>
+  )}
+/>
+
+```
+
+** ⌨️ Keyboard Support **
+
+⬇️ / ⬆️: Navigate the dropdown
+
+Enter: Select highlighted item
+
+Esc: Close the list (if implemented in useAutocomplete)
+ import React, { useState } from "react";
+import { Autocomplete } from "@fab-ui/autocomplete";
+import "@fab-ui/autocomplete/dist/index.css";
+const items = [
+  { id: "1", label: "Apple" },
+  { id: "2", label: "Banana" },
+  { id: "3", label: "Cherry" },
+  // Add more items here
+];
+
+const filterFn = (input, item) => {
+  return item.label.toLowerCase().includes(input.toLowerCase());
+};
+
+const App = () => {
+  const [selectedItem, setSelectedItem] = useState();
+  const handleSelect = (item) => {
+    setSelectedItem(item);
+  };
+
+  return (
+    <div>
+      <h1>Autocomplete Example</h1>
+      <Autocomplete
+        items={items}
+        filterFn={filterFn}
+        onSelect={handleSelect}
+        renderItem={(item, isActive) => (
+          <div
+            style={{
+              backgroundColor: isActive ? "lightblue" : "white",
+              padding: "8px",
+              cursor: "pointer",
+            }}
+          >
+            {item.label}
+          </div>
+        )}
+      />
+      {selectedItem && (
+        <div>
+          <h3>Selected Item:</h3>
+          <p>{selectedItem.label}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+```
+ 
+ ```
