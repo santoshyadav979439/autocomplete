@@ -1,3 +1,4 @@
 import "./index.css";
-export { Autocomplete } from "./Autocomplete";
+import Autocomplete from "./Autocomplete";
 export type { AutocompleteProps } from "./Autocomplete";
+export { Autocomplete };
