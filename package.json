@@ -1,6 +1,6 @@
 {
   "name": "@fab-ui/autocomplete",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.es.d.ts",
