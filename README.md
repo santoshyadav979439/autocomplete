@@ -15,7 +15,9 @@ A flexible, accessible, and developer-friendly Autocomplete component built with
 - ✅ Easily themeable
 
 ---
-
+### Github
+https://github.com/santoshyadav979439/autocomplete
+ 
 ## 📦 Installation
 
 ```bash
@@ -23,8 +25,7 @@ npm install @fab-ui/autocomplete
 # or
 yarn add @fab-ui/autocomplete
 
-```
-import React, { useState } from "react";
+```import React, { useState } from "react";
 import Autocomplete from "@fab-ui/autocomplete";
 import "@fab-ui/autocomplete/dist/index.css"; // required for styles
 
@@ -46,9 +47,7 @@ export default function App() {
       />
     </div>
   );
-}
-
-```
+}```
 
 🛠 Props
 
@@ -64,8 +63,8 @@ export default function App() {
 🎨 Styling
 This component is styled with Tailwind CSS. You must import the precompiled styles:
 
-``` import "@fab-ui/autocomplete/dist/index.css";
-```
+```import "@fab-ui/autocomplete/dist/index.css";```
+
 ♿ Accessibility
 - Uses proper WAI-ARIA roles:
     - combobox, listbox, option
